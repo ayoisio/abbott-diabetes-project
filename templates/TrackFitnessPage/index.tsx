@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import Chat from "@/components/Chat";
 import Message from "@/components/Message";
@@ -145,4 +145,10 @@ const TrackFitnessPage = () => {
   );
 };
 
-export default TrackFitnessPage;
+const SuspendedTrackFitnessPage = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <TrackFitnessPage />
+  </Suspense>
+);
+
+export default SuspendedTrackFitnessPage;

@@ -1,7 +1,7 @@
 "use client";
 
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import Chat from "@/components/Chat";
 import Message from "@/components/Message";
@@ -20,7 +20,7 @@ const navigation = [
   },
 ];
 
-const TrackBloodSugarPage = () => {
+const MonitoringPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [chatId, setChatId] = useState<string | null>(null);
@@ -145,4 +145,10 @@ const TrackBloodSugarPage = () => {
   );
 };
 
-export default TrackBloodSugarPage;
+const SuspendedMonitoringPage = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <MonitoringPage />
+  </Suspense>
+);
+
+export default SuspendedMonitoringPage;

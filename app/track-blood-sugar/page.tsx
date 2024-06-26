@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import TrackBloodSugarPage from "@/templates/TrackBloodSugarPage";
+import SuspendedTrackBloodSugarPage from "@/templates/TrackBloodSugarPage";
 
 const TrackBloodSugar: NextPage = () => {
-  return <TrackBloodSugarPage />;
+  return <SuspendedTrackBloodSugarPage />;
 };
 
 export default TrackBloodSugar;

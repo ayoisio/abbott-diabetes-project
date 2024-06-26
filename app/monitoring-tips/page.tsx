@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import MonitoringTipsPage from "@/templates/MonitoringTipsPage";
+import SuspendedMonitoringPage from "@/templates/MonitoringTipsPage";
 
 const MonitoringTips: NextPage = () => {
-  return <MonitoringTipsPage />;
+  return <SuspendedMonitoringPage />;
 };
 
 export default MonitoringTips;

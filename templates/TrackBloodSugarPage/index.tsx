@@ -1,21 +1,21 @@
 "use client";
 
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import Chat from "@/components/Chat";
 import Message from "@/components/Message";
 import Question from "@/components/Question";
 import Answer from "@/components/Answer";
 import axios from "axios";
-import TrackBloodSugarDefault from "@/components/TrackBloodSugarDefault";
+import MonitoringTipsDefault from "@/components/MonitoringTipsDefault";
 
 const navigation = [
   {
-    title: "FreeStyle Recent Glucose Values Dataset",
+    title: "FreeStyle Libre 3 Website",
     icon: "check-circle",
     color: "#FFFFFF",
-    url: "https://console.cloud.google.com/bigquery",
+    url: "https://www.freestyleprovider.abbott/us-en/home.html",
     bgColor: "#6B7280",
   },
 ];
@@ -78,7 +78,7 @@ const TrackBloodSugarPage = () => {
 
     try {
       const response = await axios.post(
-        "https://public-multimodal-chat-uzwhzrux7q-uc.a.run.app/track-blood-sugar",
+        "https://public-multimodal-chat-uzwhzrux7q-uc.a.run.app/monitoring-tips",
         {
           text: message,
           chat_history_id: chatId,
@@ -111,9 +111,9 @@ const TrackBloodSugarPage = () => {
 
   return (
     <Layout>
-      <Chat title="Track Blood Sugar">
+      <Chat title="Glucose Monitoring Tips">
         <Answer includeActions={false}>
-          <TrackBloodSugarDefault navigation={navigation} />
+          <MonitoringTipsDefault navigation={navigation} />
         </Answer>
         {error && <div className="error-message">{error}</div>}
         {conversation.map((entry, index) => {
@@ -145,4 +145,10 @@ const TrackBloodSugarPage = () => {
   );
 };
 
-export default TrackBloodSugarPage;
+const SuspendedTrackBloodSugarPage = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <TrackBloodSugarPage />
+  </Suspense>
+);
+
+export default SuspendedTrackBloodSugarPage;

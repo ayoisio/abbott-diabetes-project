@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import TrackFitnessPage from "@/templates/TrackFitnessPage";
+import SuspendedTrackFitnessPage from "@/templates/TrackFitnessPage";
 
 const TrackFitness: NextPage = () => {
-  return <TrackFitnessPage />;
+  return <SuspendedTrackFitnessPage />;
 };
 
 export default TrackFitness;
