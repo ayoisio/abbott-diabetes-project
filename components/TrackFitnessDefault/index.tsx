@@ -15,7 +15,7 @@ type ServicesProps = {
 
 const TrackFitnessDefault = ({ navigation }: ServicesProps) => (
   <div className="mb-4 p-4 border rounded bg-gray-100">
-    <h2 className="mb-4 text-lg font-semibold">I'm FreeStyle</h2>
+    <h2 className="mb-4 text-lg font-semibold">I&apos;m FreeStyle</h2>
     <p className="mb-4">
       I can help you analyze your Fitbit fitness data. Here is a link to your
       data:
@@ -50,8 +50,8 @@ const TrackFitnessDefault = ({ navigation }: ServicesProps) => (
       </li>
       <li>What is the minimum number of steps taken by user 1644430081?</li>
       <li>
-        How does John Ingram's activity levels compare to Maxwell Smith's in the
-        month of July?
+        How does John Ingram&apos;s activity levels compare to Maxwell
+        Smith&apos;s in the month of July?
       </li>
     </ul>
   </div>

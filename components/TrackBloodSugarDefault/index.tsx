@@ -15,7 +15,7 @@ type ServicesProps = {
 
 const TrackBloodSugarDefault = ({ navigation }: ServicesProps) => (
   <div className="mb-4 p-4 border rounded bg-gray-100">
-    <h2 className="mb-4 text-lg font-semibold">I'm FreeStyle</h2>
+    <h2 className="mb-4 text-lg font-semibold">I&apos;m FreeStyle</h2>
     <p className="mb-4">
       I can help you analyze your glucose monitoring data. Here is a link to
       your data:
@@ -47,8 +47,8 @@ const TrackBloodSugarDefault = ({ navigation }: ServicesProps) => (
       <li>When did my glucose value peak in the last 2 weeks?</li>
       <li>What was my average glucose value over the last month?</li>
       <li>
-        How does John Ingram's insulin levels compare to Maxwell Smith's in the
-        month of July?
+        How does John Ingram&apos;s insulin levels compare to Maxwell
+        Smith&apos;s in the month of July?
       </li>
     </ul>
   </div>

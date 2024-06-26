@@ -8,10 +8,10 @@ type ServicesProps = {};
 const Services = ({}: ServicesProps) => (
   <div className="">
     <div className="mb-4">
-      I'm FreeStyle - a versatile and powerful tool for users seeking to enhance
-      their diabetes management experience. It offers a wide range of advanced
-      features to improve functionality and efficiency. With this tool, you can
-      expect the following capabilities:
+      I&apos;m FreeStyle - a versatile and powerful tool for users seeking to
+      enhance their diabetes management experience. It offers a wide range of
+      advanced features to improve functionality and efficiency. With this tool,
+      you can expect the following capabilities:
     </div>
     <div className="flex flex-wrap -mt-2 -ml-2">
       {navigation.map((item, index) => (
