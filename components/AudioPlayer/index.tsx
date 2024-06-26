@@ -44,9 +44,9 @@ const AudioPlayer = ({ edit, onSave }: AudioPlayerProps) => {
           <>
             <div className="p-3.5 border-t border-n-3 dark:border-n-5">
               <span className="bg-primary-1 text-n-1">
-                Introducing "FreeStyle", a comprehensive diabetes management
-                tool that can turn your Abbott CGM and Fitbit data into
-                actionable insights.
+                Introducing &quot;FreeStyle&quot;, a comprehensive diabetes
+                management tool that can turn your Abbott CGM and Fitbit data
+                into actionable insights.
               </span>{" "}
               Using advanced real-time data analysis and personalized
               recommendations, FreeStyle helps you monitor your blood sugar

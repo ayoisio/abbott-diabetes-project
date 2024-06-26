@@ -15,7 +15,7 @@ type ServicesProps = {
 
 const MonitoringTipsDefault = ({ navigation }: ServicesProps) => (
   <div className="mb-4 p-4 border rounded bg-gray-100">
-    <h2 className="mb-4 text-lg font-semibold">I'm FreeStyle</h2>
+    <h2 className="mb-4 text-lg font-semibold">I&apos;m FreeStyle</h2>
     <p className="mb-4">
       I can provide you with valuable tips for monitoring your glucose levels.
       Check out our website for more information:
