@@ -12,6 +12,13 @@ import Audio from "@/components/Audio";
 const AudioGenerationPage = () => {
   const [message, setMessage] = useState<string>("");
 
+  const handleSendMessage = () => {
+    // Handle the send message action here
+    console.log("Message sent:", message);
+    // Clear the message input after sending
+    setMessage("");
+  };
+
   return (
     <Layout>
       <Chat title="Hello">
@@ -50,6 +57,7 @@ const AudioGenerationPage = () => {
       <Message
         value={message}
         onChange={(e: any) => setMessage(e.target.value)}
+        onSend={handleSendMessage} // Add the onSend property here
       />
     </Layout>
   );
