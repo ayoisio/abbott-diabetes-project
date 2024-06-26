@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import NutritionAnalyzerPage from "@/templates/NutritionAnalyzerPage";
+import SuspendedNutritionAnalyzerPage from "@/templates/NutritionAnalyzerPage";
 
 const NutritionAnalyzer: NextPage = () => {
-  return <NutritionAnalyzerPage />;
+  return <SuspendedNutritionAnalyzerPage />;
 };
 
 export default NutritionAnalyzer;
