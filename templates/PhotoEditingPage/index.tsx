@@ -11,6 +11,13 @@ import Photo from "@/components/Photo";
 const PhotoEditingPage = () => {
   const [message, setMessage] = useState<string>("");
 
+  const handleSendMessage = () => {
+    // Handle the send message action here
+    console.log("Message sent:", message);
+    // Clear the message input after sending
+    setMessage("");
+  };
+
   return (
     <Layout>
       <Chat title="Track Blood Sugar">
@@ -44,7 +51,7 @@ const PhotoEditingPage = () => {
       <Message
         value={message}
         onChange={(e: any) => setMessage(e.target.value)}
-        // image="/images/photo.jpg"
+        onSend={handleSendMessage}
       />
     </Layout>
   );

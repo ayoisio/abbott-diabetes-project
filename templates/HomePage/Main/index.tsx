@@ -12,6 +12,13 @@ const Main = ({}: MainProps) => {
   const [greeting, setGreeting] = useState<string>("Good day!");
   const [displayName, setDisplayName] = useState<string>("");
 
+  const handleSendMessage = () => {
+    // Handle the send message action here
+    console.log("Message sent:", message);
+    // Clear the message input after sending
+    setMessage("");
+  };
+
   useEffect(() => {
     const auth = getAuth();
     const db = getFirestore();
@@ -57,6 +64,7 @@ const Main = ({}: MainProps) => {
       <Message
         value={message}
         onChange={(e: any) => setMessage(e.target.value)}
+        onSend={handleSendMessage}
       />
     </>
   );

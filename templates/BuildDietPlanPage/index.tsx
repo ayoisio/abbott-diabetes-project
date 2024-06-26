@@ -13,6 +13,13 @@ import { writeCodeChat } from "@/mocks/writeCodeChat";
 const BuildDietPlanPage = () => {
   const [message, setMessage] = useState<string>("");
 
+  const handleSendMessage = () => {
+    // Handle the send message action here
+    console.log("Message sent:", message);
+    // Clear the message input after sending
+    setMessage("");
+  };
+
   return (
     <Layout>
       <Chat title="Build Diet Plan">
@@ -28,6 +35,7 @@ const BuildDietPlanPage = () => {
       <Message
         value={message}
         onChange={(e: any) => setMessage(e.target.value)}
+        onSend={handleSendMessage}
       />
     </Layout>
   );
