@@ -14,7 +14,7 @@ type ServicesProps = {
 };
 
 const TrackBloodSugarDefault = ({ navigation }: ServicesProps) => (
-  <div className="mb-4 p-4 border rounded bg-gray-100">
+  <div className="mb-4 p-4 border rounded">
     <h2 className="mb-4 text-lg font-semibold">I&apos;m FreeStyle</h2>
     <p className="mb-4">
       I can help you analyze your glucose monitoring data. Here is a link to

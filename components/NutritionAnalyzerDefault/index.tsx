@@ -13,13 +13,13 @@ type ServicesProps = {
   navigation: NavigationItem[];
 };
 
-const BuildDietPlanDefault = ({ navigation }: ServicesProps) => (
-  <div className="mb-4 p-4 border rounded bg-gray-100">
+const NutritionAnalyzerDefault = ({ navigation }: ServicesProps) => (
+  <div className="mb-4 p-4 border rounded">
     <h2 className="mb-4 text-lg font-semibold">
-      I&apos;m FreeStyle Diet Plan Builder
+      I&apos;m FreeStyle Nutrition Analyzer
     </h2>
     <p className="mb-4">
-      I can help you build a personalized diet plan. Here are some useful links:
+      I can help you analyze your nutrition data. Here are some useful links:
     </p>
     <div className="flex flex-wrap -mt-2 -ml-2">
       {navigation.map((item, index) => (
@@ -44,15 +44,11 @@ const BuildDietPlanDefault = ({ navigation }: ServicesProps) => (
       for analysis. You can ask questions such as:
     </p>
     <ul className="list-disc pl-6 mt-2">
-      <li>What should my daily calorie intake be?</li>
-      <li>How can I balance my macronutrient intake?</li>
-      <li>
-        What are some healthy meal options for breakfast, lunch, and dinner?
-      </li>
-      <li>How can I adjust my diet plan to achieve my fitness goals?</li>
-      <li>What are some nutritious snacks I can include in my diet?</li>
+      <li>What are the nutritional values of this meal?</li>
+      <li>How many calories does this meal contain?</li>
+      <li>What are the recommended portion sizes for this meal?</li>
     </ul>
   </div>
 );
 
-export default BuildDietPlanDefault;
+export default NutritionAnalyzerDefault;
