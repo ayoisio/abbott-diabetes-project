@@ -44,7 +44,7 @@ const TrackBloodSugarDefault = ({ navigation }: ServicesProps) => (
       Feel free to ask me questions about your data, such as:
     </p>
     <ul className="list-disc pl-6 mt-2">
-      <li>When did my glucose value peak in the most recent two weeks?</li>
+      <li>When did my glucose value peak most recently?</li>
       <li>What was my average glucose value over the last month?</li>
     </ul>
   </div>
