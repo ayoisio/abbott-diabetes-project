@@ -10,7 +10,7 @@ const Notifications = ({}: NotificationsProps) => {
   const [checkboxes, setCheckboxes] = useState([
     {
       id: "0",
-      title: "UI8 Platform",
+      title: "FreeStyle",
       checkboxs: [
         { id: "0", title: "New notifications", isChecked: true },
         {

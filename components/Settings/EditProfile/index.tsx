@@ -10,7 +10,7 @@ type EditProfileProps = {};
 const EditProfile = ({}: EditProfileProps) => {
   const [objectURL, setObjectURL] = useState<any>(null);
   const [name, setName] = useState<string>("");
-  const [location, setLocation] = useState<string>("Los Angeles, CA");
+  const [location, setLocation] = useState<string>("Mountain View, CA");
   const [bio, setBio] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -25,7 +25,7 @@ const EditProfile = ({}: EditProfileProps) => {
         if (userDoc.exists()) {
           const userData = userDoc.data();
           setName(userData.firstName + " " + userData.lastName);
-          setLocation(userData.location || "Los Angeles, CA");
+          setLocation(userData.location || "Mountain View, CA");
           setBio(userData.bio || "");
           setObjectURL(userData.photoURL || "/images/avatar.jpg");
           setLoading(false);

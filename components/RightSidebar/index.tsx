@@ -57,7 +57,7 @@ const RightSidebar = ({ className, visible }: RightSidebarProps) => {
         )}
       >
         <div className="absolute top-0 left-0 right-0 flex justify-end items-center h-18 px-9 border-b border-n-3 lg:pr-18 md:pr-16 dark:border-n-5">
-          <Notifications items={notifications} />
+          {/* <Notifications items={notifications} /> */}
           <Profile />
           <button
             className="btn-dark btn-medium"

@@ -34,7 +34,7 @@ export const fetchChatHistory = async (): Promise<ChatHistoryItem[]> => {
         "My fasting blood sugar was 90 mg/dL this morning. Is this within the normal range?",
       users: [userPhotoURL],
       time: "Just now",
-      url: "/daily-check-ins",
+      url: "/#",
     },
     {
       id: "1",
@@ -44,7 +44,7 @@ export const fetchChatHistory = async (): Promise<ChatHistoryItem[]> => {
       image: "/images/food/pexels-enginakyurt-1437267.jpg",
       users: [userPhotoURL],
       time: "5 minutes ago",
-      url: "/blood-sugar-alerts",
+      url: "/#",
     },
     {
       id: "2",
@@ -53,7 +53,7 @@ export const fetchChatHistory = async (): Promise<ChatHistoryItem[]> => {
         "Can anyone recommend some healthy snacks that won't cause a big increase in blood sugar?",
       users: [userPhotoURL, "/images/avatar-1.jpg", "/images/avatar-2.jpg"],
       time: "10 minutes ago",
-      url: "/diet-meal-plans",
+      url: "/#",
     },
     {
       id: "3",
@@ -62,7 +62,7 @@ export const fetchChatHistory = async (): Promise<ChatHistoryItem[]> => {
         "Went for a 30-minute walk after dinner and my blood sugar levels improved. Does anyone else find exercise helps manage their levels?",
       users: [userPhotoURL],
       time: "15 minutes ago",
-      url: "/exercise-routines",
+      url: "/#",
     },
     {
       id: "4",
@@ -71,7 +71,7 @@ export const fetchChatHistory = async (): Promise<ChatHistoryItem[]> => {
         "Should I take my medication before or after meals for better effectiveness?",
       users: [userPhotoURL],
       time: "20 minutes ago",
-      url: "/medication-reminders",
+      url: "/#",
     },
     {
       id: "5",
@@ -80,7 +80,7 @@ export const fetchChatHistory = async (): Promise<ChatHistoryItem[]> => {
         "I'm experiencing frequent low blood sugar episodes. What adjustments should I make?",
       users: [userPhotoURL],
       time: "30 minutes ago",
-      url: "/doctors-advice",
+      url: "/#",
     },
     {
       id: "6",
@@ -89,7 +89,7 @@ export const fetchChatHistory = async (): Promise<ChatHistoryItem[]> => {
         "Feeling a bit overwhelmed managing my diabetes. Any tips or words of encouragement?",
       users: [userPhotoURL, "/images/avatar-1.jpg", "/images/avatar-2.jpg"],
       time: "45 minutes ago",
-      url: "/community-support",
+      url: "/#",
     },
     {
       id: "7",
@@ -98,7 +98,7 @@ export const fetchChatHistory = async (): Promise<ChatHistoryItem[]> => {
         "Started a new discussion on managing diabetes during travel. Join in!",
       users: [userPhotoURL],
       time: "1 hour ago",
-      url: "/new-topic",
+      url: "/#",
     },
   ];
 };

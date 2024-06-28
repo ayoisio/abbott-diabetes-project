@@ -50,13 +50,14 @@ const LeftSidebar = ({
       title: "Chats",
       icon: "chat",
       color: "fill-accent-2",
-      url: "/",
+      url: "/?#chats",
     },
     {
       title: "Search",
       icon: "search",
       color: "fill-primary-2",
-      onClick: () => setVisibleSearch(true),
+      url: "/?#search",
+      // onClick: () => setVisibleSearch(true),
     },
     // {
     //     title: "Manage subscription",
@@ -68,7 +69,7 @@ const LeftSidebar = ({
       title: "Updates & FAQ",
       icon: "barcode",
       color: "fill-accent-1",
-      url: "/updates-and-faq",
+      url: "/#updates-and-faq",
     },
     {
       title: "Settings",

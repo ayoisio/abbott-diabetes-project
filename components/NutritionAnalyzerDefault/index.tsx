@@ -16,7 +16,7 @@ type ServicesProps = {
 const BuildDietPlanDefault = ({ navigation }: ServicesProps) => (
   <div className="mb-4 p-4 border rounded bg-gray-100">
     <h2 className="mb-4 text-lg font-semibold">
-      I&apos;m FreeStyle Nutrition Analyzer
+      I&apos;m FreeStyle Diet Plan Builder
     </h2>
     <p className="mb-4">
       I can help you build a personalized diet plan. Here are some useful links:

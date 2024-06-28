@@ -30,20 +30,12 @@ const Question = ({ content, image, document, time }: QuestionProps) => {
         <div className="">{content}</div>
         {image && (
           <div className="relative w-[11.25rem] h-[11.25rem]">
-            <Image
-              className="rounded-xl object-cover"
-              src={image}
-              fill
-              alt="Avatar"
-            />
+            <img className="rounded-xl object-cover" src={image} alt="Avatar" />
           </div>
         )}
       </div>
       <div className="-mt-8 flex items-end pr-6">
         <div className="pb-0.5 caption1 text-n-4/50 dark:text-n-4">{time}</div>
-        {/* <button className="ml-3 px-2 py-0.5 bg-n-3 rounded-md caption1 txt-n-6 transition-colors hover:text-primary-1 dark:bg-n-5/50">
-                    Edit
-                </button> */}
         <div className="relative w-16 h-16 ml-auto rounded-2xl overflow-hidden shadow-[0_0_0_0.25rem_#FEFEFE] dark:shadow-[0_0_0_0.25rem_#232627]">
           <img className="object-cover" src={userPhotoURL} alt="Avatar" />
         </div>

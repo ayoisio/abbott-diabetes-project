@@ -18,7 +18,7 @@ const karla = Karla({
 });
 
 export const metadata = {
-  title: "FreeStyle - ",
+  title: "FreeStyle Abbott",
   description: "Real-Time Glucose Monitoring and Personalized Health Insights",
 };
 

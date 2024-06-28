@@ -44,12 +44,8 @@ const TrackBloodSugarDefault = ({ navigation }: ServicesProps) => (
       Feel free to ask me questions about your data, such as:
     </p>
     <ul className="list-disc pl-6 mt-2">
-      <li>When did my glucose value peak in the last 2 weeks?</li>
+      <li>When did my glucose value peak in the most recent two weeks?</li>
       <li>What was my average glucose value over the last month?</li>
-      <li>
-        How does John Ingram&apos;s insulin levels compare to Maxwell
-        Smith&apos;s in the month of July?
-      </li>
     </ul>
   </div>
 );

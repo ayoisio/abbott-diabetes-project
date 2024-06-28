@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import Icon from "@/components/Icon";
 import Modal from "@/components/Modal";
 
-type AddFileProps = {};
+type AddFileProps = {
+  onFileSelect: (file: File) => void;
+};
 
-const AddFile = ({}: AddFileProps) => {
+const AddFile = ({ onFileSelect }: AddFileProps) => {
   const [visible, setVisible] = useState<boolean>(false);
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      onFileSelect(e.target.files[0]);
+      setVisible(false);
+    }
+  };
+
   return (
     <>
       <button
@@ -25,7 +35,12 @@ const AddFile = ({}: AddFileProps) => {
         onClose={() => setVisible(false)}
       >
         <div className="relative p-3 bg-primary-1 rounded-[1.25rem]">
-          <input className="absolute inset-0 opacity-0" type="file" />
+          <input
+            className="absolute inset-0 opacity-0 cursor-pointer"
+            type="file"
+            accept="image/*, video/*"
+            onChange={handleFileChange}
+          />
           <div className="px-6 py-14 border-2 border-dashed border-n-1 rounded-xl text-center text-n-1">
             <div className="flex justify-center items-center w-16 h-16 mx-auto mb-6 bg-n-1 rounded-full">
               <Icon name="upload" />

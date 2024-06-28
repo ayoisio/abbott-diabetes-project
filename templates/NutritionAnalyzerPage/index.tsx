@@ -1,7 +1,7 @@
 "use client";
 
+import React, { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import Chat from "@/components/Chat";
 import Message from "@/components/Message";
@@ -20,12 +20,13 @@ const navigation = [
   },
 ];
 
-const NutritionAnalyzerPage = () => {
+const NutritionAnalyzerPage: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [chatId, setChatId] = useState<string | null>(null);
   const [message, setMessage] = useState<string>("");
   const [image, setImage] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [conversation, setConversation] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -56,25 +57,47 @@ const NutritionAnalyzerPage = () => {
       if (parsedConversation.length === 0) {
         console.log("No conversation data found");
       } else {
-        setConversation(parsedConversation);
+        const processedConversation = parsedConversation.map((entry: any) => {
+          if (entry.role === "user" && entry.parts.length > 1) {
+            const textPart = entry.parts.find((part: any) => part.text);
+            const filePart = entry.parts.find((part: any) => part.file_data);
+
+            if (filePart && filePart.file_data.file_uri) {
+              const gsUri = filePart.file_data.file_uri;
+              const publicUrl = gsUri.replace(
+                "gs://abbott-diabetes-project-vertex-chat-session-history",
+                "https://storage.googleapis.com/abbott-diabetes-project-vertex-chat-session-history"
+              );
+              return {
+                ...entry,
+                parts: [{ text: textPart ? textPart.text : "" }],
+                image: publicUrl,
+              };
+            }
+          }
+          return entry;
+        });
+        setConversation(processedConversation);
       }
-      setError(null); // Clear any previous errors
+      setError(null);
     } catch (error) {
       console.error("Error fetching conversation:", error);
-      setError(null);
+      setError("");
     }
   };
 
   const handleSendMessage = async () => {
-    if (message.trim() === "") return;
+    if (message.trim() === "" && !image) return;
 
-    // Append the new question
     setConversation((prev) => [
       ...prev,
-      { role: "user", parts: [{ text: message }] },
+      {
+        role: "user",
+        parts: [{ text: message }],
+        image: imageUrl,
+      },
     ]);
 
-    // Set loading state to true
     setLoading(true);
 
     try {
@@ -101,27 +124,32 @@ const NutritionAnalyzerPage = () => {
 
       const outputText = response.data.output_text;
 
-      // Append the new answer
       setConversation((prev) => [
         ...prev,
         { role: "model", parts: [{ text: outputText }] },
       ]);
 
-      // Clear the message input and image
       setMessage("");
       setImage(null);
-      setError(null); // Clear any previous errors
+      setImageUrl(null);
+      setError(null);
     } catch (error) {
       console.error("Error sending message:", error);
       setError("Failed to send message. Please try again later.");
     } finally {
-      // Set loading state to false
       setLoading(false);
     }
   };
 
   const handleImageUpload = (file: File) => {
     setImage(file);
+    const url = URL.createObjectURL(file);
+    setImageUrl(url);
+  };
+
+  const handleImageRemove = () => {
+    setImage(null);
+    setImageUrl(null);
   };
 
   return (
@@ -132,11 +160,12 @@ const NutritionAnalyzerPage = () => {
         </Answer>
         {error && <div className="error-message">{error}</div>}
         {conversation.map((entry, index) => {
-          if (entry.role === "user" && entry.parts[0].text) {
+          if (entry.role === "user") {
             return (
               <Question
                 key={index}
                 content={entry.parts[0].text}
+                image={entry.image}
                 time="Just now"
               />
             );
@@ -155,14 +184,17 @@ const NutritionAnalyzerPage = () => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onSend={handleSendMessage}
-        onImageUpload={handleImageUpload}
-        image={image}
+        onFileUpload={handleImageUpload}
+        onFileRemove={handleImageRemove}
+        file={image}
+        fileUrl={imageUrl}
+        placeholder="Ask about your nutrition..."
       />
     </Layout>
   );
 };
 
-const SuspendedNutritionAnalyzerPage = () => (
+const SuspendedNutritionAnalyzerPage: React.FC = () => (
   <Suspense fallback={<div>Loading...</div>}>
     <NutritionAnalyzerPage />
   </Suspense>
